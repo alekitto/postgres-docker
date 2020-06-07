@@ -27,6 +27,7 @@ gracefully_shutdown_host() {
   echo "Gracefully shutting down database"
 
   # start postgres server in background
+  rm -f "$PGDATA/postmaster.pid"
   postgres &
 
   # Waiting for running Postgres
