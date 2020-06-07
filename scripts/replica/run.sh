@@ -54,7 +54,6 @@ setup_postgresql_config() {
   # setup recovery.conf
   cp /scripts/replica/recovery.conf /tmp
   echo "recovery_target_timeline = 'latest'" >>/tmp/recovery.conf
-  echo "archive_cleanup_command = 'pg_archivecleanup $PGWAL %r'" >>/tmp/recovery.conf
 
   # primary_conninfo is used for streaming replication
   echo "primary_conninfo = 'application_name=$HOSTNAME host=$PRIMARY_HOST'" >>/tmp/recovery.conf

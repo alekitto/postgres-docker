@@ -98,6 +98,11 @@ if [ "$ARCHIVE" == "wal-g" ]; then
   pg_ctl -D "$PGDATA" -w start
   PGUSER="postgres" wal-g backup-push "$PGDATA"
   pg_ctl -D "$PGDATA" -m fast -w stop
+
+  # setup postgresql.conf
+  echo "archive_command = 'wal-g wal-push %p'" >> $PGDATA/postgresql.conf
+  echo "archive_timeout = 60" >> $PGDATA/postgresql.conf
+  echo "archive_mode = always" >> $PGDATA/postgresql.conf
 fi
 
 # In already running primary server from previous releases, postgresql.conf may not contain 'wal_log_hints = on'

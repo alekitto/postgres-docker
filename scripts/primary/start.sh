@@ -115,12 +115,5 @@ if [ "$STREAMING" == "synchronous" ]; then
   echo "synchronous_standby_names = '*'" >>/tmp/postgresql.conf
 fi
 
-if [ "$ARCHIVE" == "wal-g" ]; then
-  # setup postgresql.conf
-  echo "archive_command = 'wal-g wal-push %p'" >>/tmp/postgresql.conf
-  echo "archive_timeout = 60" >>/tmp/postgresql.conf
-  echo "archive_mode = always" >>/tmp/postgresql.conf
-fi
-
 # ref: https://superuser.com/a/246841/985093
 cat /tmp/postgresql.conf $PGDATA/postgresql.conf >"/tmp/postgresql.conf.tmp" && mv "/tmp/postgresql.conf.tmp" "$PGDATA/postgresql.conf"
