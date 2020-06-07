@@ -117,7 +117,7 @@ mv /tmp/recovery.conf "$PGDATA/recovery.conf"
 # setup postgresql.conf
 touch /tmp/postgresql.conf
 echo "wal_level = replica" >>/tmp/postgresql.conf
-echo "max_wal_senders = 99" >>/tmp/postgresql.conf
+echo "max_wal_senders = 96" >>/tmp/postgresql.conf
 echo "wal_keep_segments = 32" >>/tmp/postgresql.conf
 if [ "$STREAMING" == "synchronous" ]; then
   # setup synchronous streaming replication

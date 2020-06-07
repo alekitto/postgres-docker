@@ -62,7 +62,7 @@ setup_postgresql_config() {
   # setup postgresql.conf
   cp /scripts/primary/postgresql.conf /tmp
   echo "wal_level = replica" >>/tmp/postgresql.conf
-  echo "max_wal_senders = 99" >>/tmp/postgresql.conf
+  echo "max_wal_senders = 96" >>/tmp/postgresql.conf
   echo "wal_keep_segments = 32" >>/tmp/postgresql.conf
   echo "wal_log_hints = on" >>/tmp/postgresql.conf
 
