@@ -32,7 +32,9 @@ jobs:
     - name: Build
       env:
         DOCKER_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-        USERNAME: 1gtm
+        USERNAME: alekitto
+        BIN: kubedb-postgres
+        REGISTRY: alekitto
       run: |
         docker login --username ${USERNAME} --password ${DOCKER_TOKEN}
         make push
