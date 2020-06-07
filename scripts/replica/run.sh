@@ -102,7 +102,7 @@ while true; do
   sleep 2
 done
 
-if [ ! -e "$PGDATA/PG_VERSION" || ! -e "$PGDATA/global/pg_control" ]; then
+if [[ ! -e "$PGDATA/PG_VERSION" || ! -e "$PGDATA/global/pg_control" ]]; then
   take_pg_basebackup
 else
   # Why pg_rewind? refs:
