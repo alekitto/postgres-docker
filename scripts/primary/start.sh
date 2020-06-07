@@ -37,6 +37,7 @@ touch /tmp/postgresql.conf
 echo "wal_level = replica" >>/tmp/postgresql.conf
 echo "max_wal_senders = 99" >>/tmp/postgresql.conf
 echo "wal_keep_segments = 32" >>/tmp/postgresql.conf
+echo "wal_log_hints = on" >>/tmp/postgresql.conf
 
 cat /scripts/primary/postgresql.conf >>/tmp/postgresql.conf
 mv /tmp/postgresql.conf "$PGDATA/postgresql.conf"
