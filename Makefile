@@ -1,9 +1,9 @@
 SHELL=/bin/bash -o pipefail
 
 REGISTRY ?= kubedb
-BIN      := postgres
+BIN      ?= postgres
 IMAGE    := $(REGISTRY)/$(BIN)
-TAG      := $(shell git describe --exact-match --abbrev=0 2>/dev/null || echo "")
+TAG      := $(shell git describe --tags --exact-match --abbrev=0 2>/dev/null || echo "")
 
 .PHONY: push
 push: container
