@@ -27,7 +27,7 @@ gracefully_shutdown_host() {
   echo "Gracefully shutting down database"
 
   # start postgres server in background
-  postgres >/dev/null 2>&1 &
+  postgres &
 
   # Waiting for running Postgres
   while true; do
